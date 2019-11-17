@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+        #svg{
+
+            width:600px;
+            height: 400px;  
+            position: absolute;
+            transform: rotateX(40deg) rotateY(0deg) rotateZ(0deg);
+            
+            transform-style: preserve-3d ;
+            /* background: #3c454c; */
+
+        }
+        #container{
+
+            width:600px;
+            height: 400px;  
+            background: #3c454c;
+            perspective: 1000px;
+
+        }
+
+        /* .mapborder_bottom:hover{
+
+            fill: rgba(15,121,150,1);
+            stroke: #fcaf41;
+        } */
+
+        .map-border-top{
+
+            /* filter:blur(20px) */
+        }
+
+        .map-area-top:hover{
+
+            fill: rgb(1, 150, 100);
+            stroke: #fcaf41;
+
+        }
+
+        /* html,body{
+
+            padding: 0;
+            margin: 0;
+
+
+        } */
+        
+        
+    
+    </style>
+    <script src="./liaoning.js"></script>
+    <script src="./liaoning_full.js"></script>
+    
+    <script src="./jquery-3.1.1.min.js" ></script>
+</head>
+<body>
+    <div id="container">
+        <svg id="svg" viewBox="0 0 600 400">
+            <defs>
+                <filter id="filter"  filterUnits="userSpaceOnUse">
+                    <feGaussianBlur  in="SourceGraphic"  stdDeviation="2" />
+                </filter> 
+            </defs>        
+            <g id="bottom_map" >
+                <!-- <polygon id="bottom_map_border"  points=""  stroke-width="1" fill="rgba(0,0,0,0)" stroke="rgba(15,121,150,1)" /> -->
+                <g id="bottom_map_area"></g>
+            </g>
+            <g id="top_map">
+                
+                <g id="top_map_shadow"></g>
+                <g id="top_map_border"></g>
+                <g id="top_map_area" ></g>
+            </g>
+
+        </svg>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
