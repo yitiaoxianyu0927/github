@@ -28,3 +28,14 @@
 <p align="center">
   <img src="https://github.com/yitiaoxianyu0927/github/blob/master/chart/echarts/asset/img/chart7.gif">
 </p>
+
+
+10.图表10
+<p align="center">
+  <img src="https://github.com/yitiaoxianyu0927/github/blob/master/chart/echarts/asset/img/chart10.png">
+</p>
+
+11.图表11
+<p align="center">
+  <img src="https://github.com/yitiaoxianyu0927/github/blob/master/chart/echarts/asset/img/chart11.png">
+</p>
