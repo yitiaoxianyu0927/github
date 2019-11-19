@@ -37,5 +37,5 @@
 
 11.图表11
 <p align="center">
-  <img src="https://github.com/yitiaoxianyu0927/github/blob/master/chart/echarts/asset/img/chart11.png">
+  <img src="https://github.com/yitiaoxianyu0927/github/blob/master/chart/echarts/asset/sheetshot/chart11.png">
 </p>
