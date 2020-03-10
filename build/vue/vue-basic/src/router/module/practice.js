@@ -4,6 +4,10 @@ const router = [{
     name: 'ElementTable',
     component:()=>import('@/view/practice/table/ElementTable')
   },{
+    path: '/ElementForm',
+    name: 'ElementForm',
+    component:()=>import('@/view/practice/table/ElementForm')
+  },{
     path: '/word',
     name: 'word',
     component:()=>import('@/view/practice/table/word')
@@ -36,6 +40,14 @@ const router = [{
     path: '/kettle',
     name: 'kettle',
     component:()=>import('@/view/practice/Integrate/kettle')
+  },{
+    path: '/browerApi',
+    name: 'browerApi',
+    component:()=>import('@/view/practice/origin/browerApi')
+  },{
+    path: '/performanceList',
+    name: 'performanceList',
+    component:()=>import('@/view/practice/performance/performanceList')
   }]
 
   

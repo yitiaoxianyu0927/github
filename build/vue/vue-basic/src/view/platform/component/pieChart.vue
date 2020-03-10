@@ -113,8 +113,9 @@ export default {
            width: 100%;
        }
        .chart{
-           width: 100%;
-           height:calc(100% - 36px)
+            width: 100%;
+            height:calc(100% - 36px);
+
        }
 
    }
@@ -122,3 +123,6 @@ export default {
 
 
 </style>
+
+
+

@@ -19,8 +19,6 @@ const config = [{
    }]
    
  
-   
-
 },{
 
     firstMenuId:"practice",
@@ -34,6 +32,12 @@ const config = [{
             id:"ElementTable",
             title:"表格封装",
             icon:"icon-stack"
+         
+        },{
+
+            id:"ElementForm",
+            title:"表单封装",
+            icon:"icon-file-text"
          
         },{
 
@@ -92,6 +96,30 @@ const config = [{
            id:"kettle",
            title:"kettle",
            icon:"icon-google-drive"
+
+        }]
+    },{
+        
+        id:"origin",
+        title:"原生练习",
+        icon:"icon-spinner10",
+        children:[{
+
+           id:"browerApi",
+           title:"浏览器Api",
+           icon:"icon-chrome"
+
+        }]
+    },{
+        
+        id:"performance",
+        title:"性能",
+        icon:"icon-whatsapp",
+        children:[{
+
+           id:"performanceList",
+           title:"数据列表",
+           icon:"icon-spotify"
 
         }]
     }]
