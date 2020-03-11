@@ -28,7 +28,7 @@ let layerStyleConfig = [
         //水面
         "id": "water",
         "type": "fill",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_water_a_free_1",
         "layout": {},
         "paint": {
@@ -40,7 +40,7 @@ let layerStyleConfig = [
         //墓地
         "id": "cemetery",
         "type": "fill",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_pofw_a_free_1",
         "layout": {},
         "paint": {
@@ -52,7 +52,7 @@ let layerStyleConfig = [
         //建筑物
         "id": "building",
         "type": "fill",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_buildings_a_free_1",
         "minzoom": 15,
         "layout": {},
@@ -91,7 +91,7 @@ let layerStyleConfig = [
         //医院
         "id": "hospital",
         "type": "fill",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_pois_a_free_1",
         "filter": [
             "==",
@@ -119,7 +119,7 @@ let layerStyleConfig = [
         //公园
         "id": "park",
         "type": "fill",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_pois_a_free_1",
         "filter": [
             "==",
@@ -148,7 +148,7 @@ let layerStyleConfig = [
         //学校
         "id": "school",
         "type": "fill",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_pois_a_free_1",
         "filter": [
             "in",
@@ -178,7 +178,7 @@ let layerStyleConfig = [
         //机场
         "id": "industrial",
         "type": "fill",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_transport_a_free_1",
         "layout": {},
         "paint": {
@@ -201,7 +201,7 @@ let layerStyleConfig = [
         //机场高速
         "id": "aeroway-runway",
         "type": "line",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_runways_free_1",
         "minzoom": 9,
         "layout": {},
@@ -238,7 +238,7 @@ let layerStyleConfig = [
     {
         "id": "road-rail-tracks",
         "type": "line",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_railways_free_1",
         "minzoom": 13,
         "layout": {
@@ -292,7 +292,7 @@ let layerStyleConfig = [
     }, {
         "id": "road-rail",
         "type": "line",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_railways_free_1",
         "minzoom": 13,
         "layout": {
@@ -330,7 +330,7 @@ let layerStyleConfig = [
         //高速公里
         "id": "bridge-motorway",
         "type": "line",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_roads_free_1",
         "filter": [
             "==",
@@ -363,7 +363,7 @@ let layerStyleConfig = [
     {
         "id": "bridge-motorway-case",
         "type": "line",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_roads_free_1",
         "filter": [
             "==",
@@ -406,7 +406,7 @@ let layerStyleConfig = [
     }, {
         "id": "road-secondary-tertiary-case",
         "type": "line",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_roads_free_1",
         "minzoom": 10,
         "filter": [
@@ -470,7 +470,7 @@ let layerStyleConfig = [
         //三级路
         "id": "road-secondary-tertiary",
         "type": "line",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_roads_free_1",
         "minzoom": 10,
         "filter": [
@@ -531,7 +531,7 @@ let layerStyleConfig = [
     }, {
         "id": "road-primary-case",
         "type": "line",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_roads_free_1",
         "minzoom": 9,
         "filter": [
@@ -590,7 +590,7 @@ let layerStyleConfig = [
     {
         "id": "road-street-case",
         "type": "line",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_roads_free_1",
         "minzoom": 9,
         "filter": [
@@ -656,7 +656,7 @@ let layerStyleConfig = [
         "metadata": {
             "mapbox:group": "1444855786460.0557"
         },
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_roads_free_1",
         "minzoom": 9,
         "filter": [
@@ -707,7 +707,7 @@ let layerStyleConfig = [
         //主要路
         "id": "road-primary",
         "type": "line",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_roads_free_1",
         "minzoom": 9,
         "filter": [
@@ -757,7 +757,7 @@ let layerStyleConfig = [
         "metadata": {
             "mapbox:group": "1444855786460.0557"
         },
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_roads_free_1",
         "minzoom": 9,
         "filter": [
@@ -808,7 +808,7 @@ let layerStyleConfig = [
         //人行道
         "id": "road-path",
         "type": "line",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_roads_free_1",
         "minzoom": 9,
         "filter": [
@@ -887,7 +887,7 @@ let layerStyleConfig = [
         //村庄
         "id": "place-village",
         "type": "symbol",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_places_free_1",
         "minzoom": 8,
         "maxzoom": 15,
@@ -927,7 +927,7 @@ let layerStyleConfig = [
         //郊区
         "id": "place-suburb",
         "type": "symbol",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_places_free_1",
         "minzoom": 10,
         "maxzoom": 16,
@@ -970,7 +970,7 @@ let layerStyleConfig = [
     {
         "id": "place-city-md-s",
         "type": "symbol",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_places_free_1",
         "maxzoom": 14,
         "filter": [
@@ -1068,7 +1068,7 @@ let layerStyleConfig = [
     {
         "id": "road-label-large",
         "type": "symbol",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_roads_free_1",
         "filter": [
             "in",
@@ -1121,7 +1121,7 @@ let layerStyleConfig = [
         "metadata": {
             "mapbox:group": "1444933575858.6992"
         },
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_roads_free_1",
         "minzoom": 13,
         "filter": [
@@ -1187,7 +1187,7 @@ let layerStyleConfig = [
     {
         "id": "road-oneway-arrows-white",
         "type": "symbol",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_roads_free_1",
         "minzoom": 16,
         "filter": [
@@ -1218,7 +1218,7 @@ let layerStyleConfig = [
     }, {
         "id": "road-shields-white",
         "type": "symbol",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_roads_free_1",
         "minzoom": 14,
         "filter": [
@@ -1277,10 +1277,38 @@ let layerStyleConfig = [
         },
         "interactive": true
     },
+   
+    {
+        //二等路
+        "id": "road-secondary",
+        "type": "line",
+        "source": "china",
+        "source-layer": "gis_osm_roads_free_1",
+        "minzoom": 9,
+        "filter": [
+            "==",
+            "fclass",
+            "secondary"
+        ],
+        "layout": {
+            "line-join": "round"
+        },
+        "paint": {
+            "line-width": {
+                "base": 1,
+                "stops": [
+                    [ 10,  1 ], [ 18, 4 ]
+                ]
+            },
+            "line-color": "#fff",
+           
+        },
+        "interactive": true
+    },
     {
         "id": "waterway-label",
         "type": "symbol",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_water_a_free_1",
         "minzoom": 12,
         "layout": {
@@ -1317,7 +1345,7 @@ let layerStyleConfig = [
         "metadata": {
             "mapbox:group": "1444933358918.2366"
         },
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_pofw_free_1",
         "minzoom": 14,
         "layout": {
@@ -1371,7 +1399,7 @@ let layerStyleConfig = [
     }, {
         "id": "poi-scalerank1",
         "type": "symbol",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_pois_free_1",
         "minzoom": 13,
         "layout": {
@@ -1427,7 +1455,7 @@ let layerStyleConfig = [
     }, {
         "id": "airport-label",
         "type": "symbol",
-        "source": "germany",
+        "source": "china",
         "source-layer": "gis_osm_transport_free_1",
         "filter": [
             "==",
