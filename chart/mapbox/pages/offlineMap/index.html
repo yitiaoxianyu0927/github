@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>中国地图</title>
+    <meta charset="utf-8" />
+    <!--<script src='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>-->
+    <script src="../../js/mapbox-gl.js"></script>
+    <link href="../../css/mapbox-gl.css" rel="stylesheet" />
+    <script src="./config.js"></script>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #map {
+            height: 100%;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id='map'></div>
+    <script>
+        var map = new mapboxgl.Map({
+            container: 'map',
+            center: [123.440516,41.810241],
+            zoom: 13,
+            min:7,
+            max:14,
+            style: {
+                "version": 8,
+                //我使用的这个版本sprite要写全路径
+                "sprite": "http://127.0.0.1:5500/chart/mapbox/sprites/sprite",
+                //字体.pbf文件获取
+                "glyphs": "../../fonts/{fontstack}/{range}.pbf",
+                "sources": {
+                    "germany": {
+                        //矢量类型
+                        "type": "vector",
+                        //服务类型 tms，要使用wmts请换成wmts
+                        "scheme": "tms",
+                        "tiles": [
+                            //获取GeoServer 矢量切片服务,可以是一下几种方式
+                            //"http://localhost:8080/geoserver/gwc/service/tms/1.0.0/germany:germany_map@EPSG:900913@pbf/{z}/{x}/{y}.pbf",
+                          //虚拟目录 
+                          "http://127.0.0.1:5500/chart/mapbox/maptile/{z}/{x}/{y}.pbf"
+                          //"http://localhost:8080/geoserver/gwc/service/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&LAYER=germany:germany_map&STYLE=&TILEMATRIX=EPSG:900913:{z}&TILEMATRIXSET=EPSG:900913&FORMAT=application/x-protobuf;type=mapbox-vector&TILECOL={x}&TILEROW={y}"
+                        ]
+                    }
+                },
+                layers:layerStyleConfig, 
+                "_ssl": true
+            }
+        });
+        map.addControl(new mapboxgl.NavigationControl());
+    </script>
+</body>
+</html>
