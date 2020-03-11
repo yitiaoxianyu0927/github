@@ -26,3 +26,9 @@
 
 更多展示可见 https://github.com/yitiaoxianyu0927/github/tree/master/chart/echarts
 
+
+
+6.离线矢量地图 (离线mapbox)
+<p align="center">
+  <img src="https://github.com/yitiaoxianyu0927/github/blob/master/chart/mapbox/assets/screenshot/screenshot1.png">
+</p>
