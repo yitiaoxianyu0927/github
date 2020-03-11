@@ -588,6 +588,33 @@ let layerStyleConfig = [
         "interactive": true
     },
     {
+        //二等路
+        "id": "road-secondary",
+        "type": "line",
+        "source": "china",
+        "source-layer": "gis_osm_roads_free_1",
+        "minzoom": 9,
+        "filter": [
+            "==",
+            "fclass",
+            "secondary"
+        ],
+        "layout": {
+            "line-join": "round"
+        },
+        "paint": {
+            "line-width": {
+                "base": 1,
+                "stops": [
+                    [ 10,  1 ], [ 18, 4 ]
+                ]
+            },
+            "line-color": "#fff",
+           
+        },
+        "interactive": true
+    },
+    {
         "id": "road-street-case",
         "type": "line",
         "source": "china",
@@ -1129,8 +1156,7 @@ let layerStyleConfig = [
             [
                 "in",
                 "fclass",
-                "motorway",
-                "primary",
+                "motorway"
             ]
         ],
         "layout": {
@@ -1278,33 +1304,7 @@ let layerStyleConfig = [
         "interactive": true
     },
    
-    {
-        //二等路
-        "id": "road-secondary",
-        "type": "line",
-        "source": "china",
-        "source-layer": "gis_osm_roads_free_1",
-        "minzoom": 9,
-        "filter": [
-            "==",
-            "fclass",
-            "secondary"
-        ],
-        "layout": {
-            "line-join": "round"
-        },
-        "paint": {
-            "line-width": {
-                "base": 1,
-                "stops": [
-                    [ 10,  1 ], [ 18, 4 ]
-                ]
-            },
-            "line-color": "#fff",
-           
-        },
-        "interactive": true
-    },
+    
     {
         "id": "waterway-label",
         "type": "symbol",
