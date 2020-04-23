@@ -1,0 +1,1 @@
+console.log("utils",Array.from({length:4},(v,i)=>i))

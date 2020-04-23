@@ -6,8 +6,13 @@
            :option="ListForm"
            @ChangeElem="ChangeElem"
            @ButtonFunc="ButtonFunc"
-        
+           @QueryFormData="QueryFormData"
         >
+ 
+            <template slot="custom">
+               <div class="custom">这个是自定义区域</div>
+            </template>     
+
         </ElementForm>
         
     </div>
@@ -16,6 +21,8 @@
 
 
 <script>
+
+    import axios from "axios";
 
 
     export default {
@@ -70,10 +77,12 @@
                                 col:6,
                                 option:[{
                                     id:"reset",
+                                    buttonType:"reset",
                                     name:"重置",
-                                    type:"default"
+                                    themeType:"default"
                                 },{
                                     id:"search",
+                                    buttonType:"search",
                                     name:"查询"
                                 }]
                             }
@@ -115,6 +124,24 @@
                                     name:"单选框2"
                                 }]
                             },
+                        ],
+                        [
+                            {
+                                id:"dateRange",
+                                name:"时间段",
+                                elem:"datePicker",
+                                type:"daterange",
+                                startPlaceholder:"开始时间",
+                                endPlaceholder:"截止时间",
+                                col:8,
+                                value:""
+                            },
+                            {
+                                id:"custom",
+                                name:"自定义",
+                                col:8,
+                                elem:"custom",
+                            },
                         ]
 
                        
@@ -141,6 +168,11 @@
             ButtonFunc(id){
 
                 console.log(id)
+            },
+            QueryFormData(formData){
+
+                console.log("formData",formData); 
+
             }
 
         },
@@ -154,3 +186,16 @@
 
 </script>
 
+<style lang="less" scoped>
+    
+    .custom{
+
+       width: 100%;
+       height: 100%;
+       border:1px solid #000;
+
+    }
+
+
+
+</style>

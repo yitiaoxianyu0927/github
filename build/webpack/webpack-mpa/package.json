@@ -1,0 +1,52 @@
+{
+  "name": "webpack-pro-a",
+  "version": "1.0.0",
+  "description": "多页面打包",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config build/webpack.prod.conf.js",
+    "dev": "webpack-dev-server --config build/webpack.dev.conf.js --open",
+    "watch": "webpack --watch"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "antd": "^4.1.4",
+    "less": "^3.11.1",
+    "lib-flexible": "^0.3.2",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "autoprefixer": "^9.7.6",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.4.2",
+    "element-ui": "^2.13.0",
+    "file-loader": "^6.0.0",
+    "glob": "^7.1.6",
+    "html-loader": "^1.1.0",
+    "html-webpack-externals-plugin": "^3.8.0",
+    "html-webpack-plugin": "^4.0.4",
+    "install": "^0.13.0",
+    "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-px2rem": "^0.3.0",
+    "px2rem-loader": "^0.1.9",
+    "raw-loader": "^0.5.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "style-loader": "^1.1.3",
+    "url-loader": "^4.0.0",
+    "vue-loader": "^15.9.1",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
