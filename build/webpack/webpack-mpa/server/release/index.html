@@ -1,0 +1,75 @@
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>调试页面</title>
+        <style>
+        
+            body,html,.container{
+
+                margin:0;
+                padding:0;
+                width:100%;
+                height:100%;    
+            }
+
+            .left-container,.right-container{
+
+                box-sizing:border-box;
+                height:100%;
+                border:1px solid #3c454c;
+                float:left;
+            }
+
+            .left-container{
+
+                width:200px;
+                padding:10px;
+            }
+
+            .right-container{
+
+                width:calc(100% - 200px);
+            }
+
+            iframe{
+
+                width:100%;
+                height:100%;
+                border:none;
+            }
+
+        </style>
+
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="left-container">
+                
+                  <a href="/webpack-pro-A/page/page-base/index.html" target="iframe">webpack-test</a>
+                <br/>
+                  <a href="/webpack-pro-A/page/page-nest/index.html" target="iframe">Document</a>
+                <br/>
+                  <a href="/webpack-pro-A/page/page-nest/page-c-a/index.html" target="iframe">page-c-a页面</a>
+                <br/>
+                  <a href="/webpack-pro-A/page/page-nest/page-c-b/index.html" target="iframe">page-c-b页面</a>
+                <br/>
+                  <a href="/webpack-pro-A/page/page-react/index.html" target="iframe">React</a>
+                <br/>
+                  <a href="/webpack-pro-A/page/page-vue/index.html" target="iframe">vue</a>
+                
+            </div>
+            <div class="right-container">
+              <iframe src="/webpack-pro-A/page/page-base/index.html" name="iframe" ></iframe>
+            </div>
+        </div>    
+        
+        
+    </body>
+    </html> 
+

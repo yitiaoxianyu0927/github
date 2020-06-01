@@ -5,8 +5,11 @@ var glob = require('glob');
 function filterQueryPagePaths(pagePaths){
 
     let pageNames = process.env.PAGES_ENV; 
+
     
-    if(pageNames){  /// 校验是否有页面
+    
+    if(pageNames && pageNames!="undefined"){  /// 校验是否有页面
+
 
         pageNames = pageNames.match(/,/g) ? pageNames.split(",") : pageNames;
 
@@ -20,7 +23,6 @@ function filterQueryPagePaths(pagePaths){
         })
         
     }
-
 
     return pagePaths;
 

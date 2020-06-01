@@ -4,13 +4,15 @@
 
 const path = require('path');
 
-const buildPackageName = "dist";
+const buildPackageName = "webpack-pro-A";
 
 module.exports = {
+  buildPackageName,
   dev: {
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsRoot: path.resolve(__dirname, `../src`),
+    assetsPublicPath: '/',  //图片等资源路径
     proxyTable: {
 
       // '/api': {

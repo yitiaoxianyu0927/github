@@ -24,34 +24,57 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const devConfig = {
 
     
-    plugins:[
-       
-        
-        new webpack.HotModuleReplacementPlugin(),
-     
-    ],
+    
      
     mode:"development", // production
     devtool:'eval-source-map',
     devServer:{
-
-        contentBase: path.resolve(__dirname,'../dist'),
+        
+        hot: true,
+        //hotOnly:true,
+        //inline:true,
+        //disableHostCheck: true,
+        contentBase: config.dev.assetsRoot,
         //启动gzip压缩
         compress: true,
         host: config.dev.host,
         port: config.dev.post,
+        quiet:true,
         overlay: config.dev.errorOverlay? 
           { warnings: false, errors: true }
           : false,
-        hot: true,
+        //hot: true,
         //quiet: true,
         publicPath:"/",
         watchOptions: {
           poll: config.dev.poll
+        },
+        proxy: {
+          '/map': {
+            target: 'http://188.103.142.161:8082',
+            pathRewrite: {'^/map' : ''}
+          }
         }
-    }
+        // before: (app) => {
 
+        //   console.log("app",app);
+        //   // app.use('*', (req, res, next) => {
+        //   //   res.header("Access-Control-Allow-Origin", "*");
+        //   //   res.header("Access-Control-Allow-Methods", "POST,GET");
+        //   //   res.header("Access-Control-Allow-Headers", "Origin,Accept,Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
+        //   //   next();
+        //   // });
+        // }
+    },
 
+    plugins:[
+       
+        
+      new webpack.HotModuleReplacementPlugin(),
+   
+    ],
+
+    
     //只会在内存中编译打包，不会有任何输出
     // npx webpack-dev-server 
 
@@ -78,11 +101,11 @@ module.exports = new Promise((resolve, reject) => {
         // Add FriendlyErrorsPlugin
         devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
-            messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
+            messages: [`你的应用程序在这里运行: http://${devWebpackConfig.devServer.host}:${port}`],
           },
-        //   onErrors: config.dev.notifyOnErrors
-        //   ? utils.createNotifierCallback()
-        //   : undefined
+          // onErrors: config.dev.notifyOnErrors
+          // ? utils.createNotifierCallback()
+          // : undefined
         }))
   
         resolve(devWebpackConfig)

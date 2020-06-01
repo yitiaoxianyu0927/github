@@ -1,1 +1,4 @@
-console.log("utils",Array.from({length:4},(v,i)=>i))
+
+
+export let a = 1 ;
+export let b = 2 ;

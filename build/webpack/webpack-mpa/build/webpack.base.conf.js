@@ -14,6 +14,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const copyWebpackPlugin = require('copy-webpack-plugin');
 const config = require('../config');
 const single = require('./single-conf.js');
+const HappyPack = require('happypack');
 
 
 
@@ -24,7 +25,8 @@ const getMPA = () => {
  
     const entryFiles = 
                 single.filterQueryPagePaths(
-                    glob.sync(path.join(__dirname, '../src/page/**/index.js'))
+                    glob.sync(path.join(__dirname, '../src/page/**/index.html'),{ nodir: true })
+                        .map(item => item.replace('index.html','index.js'))
                 );
    
     console.log('entryFiles',entryFiles);
@@ -34,7 +36,7 @@ const getMPA = () => {
         const match = entryFile.match(/src\/(.*)\/index\.js/);
         const pageName = match && match[1];
  
-        entry[pageName] = entryFile;
+        entry[pageName] = [entryFile];//["@babel/polyfill",entryFile];
         htmlWebpackPlugins.push(
             new HtmlWebpackPlugin({
                 template: path.join(__dirname, `../src/${pageName}/index.html`),
@@ -64,7 +66,6 @@ const getMPA = () => {
 const { entry, htmlWebpackPlugins } = getMPA();
 
 
-
 //let baseUrl = "page/page-vue";
 
 
@@ -77,7 +78,9 @@ module.exports = {
         //输出文件名
         filename: '[name]/build.js', //'build.js',//
         //__dirname当前目录绝对路径
-        path:path.join(__dirname, '../dist') // path.resolve( __dirname , 'dist/'+baseUrl )//
+        path:config.build.assetsRoot, // path.resolve( __dirname , 'dist/'+baseUrl )//
+        publicPath: process.env.NODE_ENV == 'production' ? 
+                        config.build.assetsPublicPath:  config.dev.assetsPublicPath
 
     },
     resolve: {
@@ -91,27 +94,41 @@ module.exports = {
         rules:[{
                 
                 test:/.js$/,
-                use: 'babel-loader'
-
+                use: [
+                    "happypack/loader"
+                    //'babel-loader'
+                ],
+                include: [
+                    path.resolve(__dirname,'../src'),
+                    path.resolve(__dirname,'../node_modules/webpack-dev-server/client')
+                ],
+                //exclude:['node_modules'] 
             },{  //loader配置
 
                 test: /\.css$/,
                 use:[
                     //创建style标签，将js中的样式资源插入进行，添加到head中生效   
+                    process.env.NODE_ENV !== 'production'
+                    ? 'vue-style-loader':
                     MiniCssExtractPlugin.loader,
                     //将 css 文件变成common.js 模块加载js中
                     'css-loader'
                 ]
+
 
             },{  //loader配置
 
                 test: /\.less$/,
                 use:[
                     //创建style标签，将js中的样式资源插入进行，添加到head中生效   
+                    process.env.NODE_ENV !== 'production'
+                    ? 'vue-style-loader':
                     MiniCssExtractPlugin.loader,
                     //将 css 文件变成common.js 模块加载js中
                     'css-loader',
-                    'less-loader'
+                    'less-loader',
+                    
+                    //'postcss-loader',  ///转换px
                 ]
 
             },{  //loader配置
@@ -128,7 +145,8 @@ module.exports = {
                     limit: 8 * 1024,  ///图片小于8kb，会被base64处理 优点减少服务器压力 缺点图片体积增大
                     esModule: false,   ///url-loader使用es6loader 而html-loader引入图片使用 common.js解析会出问题
                     name:'assets/images/[name]_[hash:8].[ext]',
-                    publicPath: process.env.NODE_ENV == 'production' ? '/dist/':'../../'
+                    publicPath: process.env.NODE_ENV == 'production' ? 
+                                    config.build.assetsPublicPath:  config.dev.assetsPublicPath
                     
                 }
 
@@ -146,7 +164,8 @@ module.exports = {
                 options: {
                     limit: 10000,
                     name:'assets/fonts/[name]_[hash:8].[ext]',
-                    publicPath: process.env.NODE_ENV == 'production' ? '/dist/':'../../'
+                    publicPath: process.env.NODE_ENV == 'production' ? 
+                                    config.build.assetsPublicPath:  config.dev.assetsPublicPath
                 }
             },
             {  //loader配置
@@ -168,7 +187,8 @@ module.exports = {
                         ]
                     }
                 }  
-            }
+            },
+       
         ]
 
     },
@@ -187,17 +207,22 @@ module.exports = {
         //     }
         // }),
         new VueLoaderPlugin(),
-        new MiniCssExtractPlugin({
-            filename:'[name]/[contenthash:8].css'
+        new HappyPack({
+
+            loaders: [ 'babel-loader?cacheDirectory' ]
         }),
+        
+        new MiniCssExtractPlugin({
+            filename:'[name]/index.css'//
+        }),
+      
         new copyWebpackPlugin([{
             from:path.join(__dirname, '../static'),
-            to:'../dist/static'
-        }])
-      
+            to:config.build.assetsRoot + '/static'
+        }]),
     
     ].concat(htmlWebpackPlugins),
-
+    stats:'errors-only'
     
 
     //只会在内存中编译打包，不会有任何输出

@@ -1,5 +1,5 @@
 <template>
-    <div>这个是公共组件 props:{{value}}</div>
+    <div class="font">这个是公共组件 props:{{value}}</div>
 </template>
 
 
@@ -20,3 +20,13 @@
     
     }
 </script>
+
+<style lang="less" scoped>
+    
+    .font{
+
+        color:chocolate;
+    }
+
+
+</style>

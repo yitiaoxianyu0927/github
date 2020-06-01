@@ -14,17 +14,30 @@ const { VueLoaderPlugin } = require('vue-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const copyWebpackPlugin = require('copy-webpack-plugin');
-const PruifyCSSPlugin = require('purifycss-webpack');
+const PurgecssPlugin = require('purgecss-webpack-plugin')
 const config = require('../config');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.conf.js');
+const happypack = require('happypack');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
+// const PurgecssPaths = glob.sync(path.join(__dirname, '../src/page/**/index.js'),{ nodir: true }).map(item => {
+
+//    let path = item.substring(0,item.indexOf("index.js")); 
+
+//    return path
+
+// })
 
 
 
 
 const prodConfig = {
+
+
+    
 
     plugins:[
        
@@ -35,16 +48,29 @@ const prodConfig = {
             //     path.resolve( __dirname,"dist/"+baseUrl)
             // ],
         }),
-        // new HtmlWebpackPlugin({
-        //     template:path.resolve( __dirname,"src/"+baseUrl+"/index.html"),
-        //     inject: true,
-        //     chunks:[baseUrl],
-        //     minify: {
-        //         removeComments: true,
-        //         collapseWhitespace: true,
-        //         removeAttributeQuotes: true
-        //     }
-        // }),
+        //new BundleAnalyzerPlugin()
+        
+       
+
+        // new PurgecssPlugin({
+        //     //paths:glob.sync(`${path.resolve(__dirname)}/src/page/**/*.css`,{ nodir: true })
+        //     paths:[
+        //         // ...glob.sync(
+        //         //     path.join(__dirname, '../src/page/**/index.html'),
+        //         // ),
+        //         // ...glob.sync(
+        //         //     path.join(__dirname, '../src/page/**/*.less'),
+        //         // ),
+        //         ...glob.sync(
+        //             path.join(__dirname, '../src/page/**/*.vue'),
+        //         )
+        //         // ...glob.sync(
+        //         //     path.join(__dirname, '../src/page/**/*.css'),
+        //         // )
+        //     ] 
+        
+        // })
+       
       
         // new PruifyCSSPlugin({
         //     paths:glob.sync(path.join(__dirname,'src/*.html'))//src下所有的html
@@ -86,6 +112,12 @@ const prodConfig = {
                 name: 'libs/chunk-antd', // 单独将 elementUI 拆包
                 priority: 20, // 权重要大于 libs 和 app 不然会被打包进 libs 或者 app
                 test: /[\\/]node_modules[\\/]antd[\\/]/
+            },
+            Utils: {
+                name: 'libs/chunk-utils', // 单独将 elementUI 拆包
+                priority: 20, // 权重要大于 libs 和 app 不然会被打包进 libs 或者 app
+                
+                test: /[\\/]src[\\/]utils[\\/]/
             },
           }
         },

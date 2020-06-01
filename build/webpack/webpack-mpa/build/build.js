@@ -16,12 +16,12 @@ const webpackConfig = require('./webpack.prod.conf')
 
 
 const spinner = ora(
-  'building for ' + process.env.env_config + ' environment...'
+  'building for ' + process.env.NODE_ENV + ' environment...'
 )
 spinner.start()
 
-rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
-   if (err) throw err
+// rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
+//    if (err) throw err
   webpack(webpackConfig, (err, stats) => {
     spinner.stop()
     if (err) throw err
@@ -40,33 +40,8 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       process.exit(1)
     }
 
-    console.log(chalk.cyan(' Build complete.\n'))
-    console.log(
-      chalk.yellow(
-        ' Tip: built files are meant to be served over an HTTP server.\n' +
-          " Opening index.html over file:// won't work.\n"
-      )
-    )
+    console.log(chalk.cyan(' 构建成功.\n'))
+   
 
-    // if (process.env.npm_config_preview) {
-
-    //   const port = 9526
-    //   const host = 'http://localhost:' + port
-    //   const basePath = config.build.assetsPublicPath
-    //   const app = connect()
-
-    //   app.use(
-    //     basePath,
-    //     serveStatic('../RELEASE/apache-tomcat-8.0.53/webapps/tcoamp-web-ui', {
-    //       index: ['index.html', '/']
-    //     })
-    //   )
-
-    //   app.listen(port, function() {
-    //     console.log(
-    //       chalk.green(`> Listening at  http://localhost:${port}${basePath}`)
-    //     )
-    //   })
-    // }
   })
-})
+// })
